@@ -7,6 +7,9 @@ import pandas as pd
 
 app = Dash(__name__)
 
+# needed for gunicorn/wsgi to connect
+server = app.server
+
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
 df = pd.DataFrame({
@@ -32,3 +35,4 @@ app.layout = html.Div(children=[
 
 if __name__ == '__main__':
     app.run_server(debug=False ,host="0.0.0.0",port=3000)
+
